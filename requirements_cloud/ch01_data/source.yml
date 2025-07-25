@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: lego
+    database: DBT_COURSE
+    schema: LEGO
+    tables:
+      - name: colors
+      - name: inventories
+      - name: inventory_parts
+      - name: inventory_sets
+      - name: parts
+      - name: part_categories
+      - name: sets
+      - name: themes
