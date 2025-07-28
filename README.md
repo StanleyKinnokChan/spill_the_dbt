@@ -55,9 +55,13 @@ You’re now all set and ready to move on to the challenge! ✅
 
 - Follow the step-by-step instructions provided in the challenge markdown file.
 - Write your dbt models, tests, and code as instructed.
-- Use Git to commit your changes to your created repository.
 
-**3. Optional: Share Your Solutions**
+**3. Optional: Download the managed repository**
+If you follow the setup above, you are using a managed repository. You can download the repository to your local machine. The managed repository can be found in account-settings -> project -> project name -> repository.
+After downloading the repository, you can choose to push the project to GitHub. 
+> ![Download Repository](https://i.imgur.com/n7vJbDC.png)
+
+**4. Optional: Share Your Solutions**
 
 If you'd like to share your solutions on social:
 - Use the hashtag **#SpillTheDBT** 
@@ -71,8 +75,8 @@ If you'd like to contribute back to the project, you can create a pull request f
 
 | Week | Challenge         | Estimated Time                                    | Skills Tested | Walkthrough                                             | Solutions                                                |
 |----- |-----------------------|------------------------------------------------------|-------|---------------------------------------------------------|----------------------------------------------------------|
-| 1. | [Introduction to dbt-core](https://github.com/StanleyKinnokChan/spill_the_dbt/blob/main/tasks_cloud/challenge_01.md) | 1/2 a day      | - Basic connection profiles<br>- Migrating SQL code to dbt<br>- Running and testing models<br>- Referencing model outputs<br>- Generating documentation | Coming soon | [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_01) |
-| 2. | [Testing models to find errors](https://github.com/StanleyKinnokChan/spill_the_dbt/blob/main/tasks_cloud/challenge_02.md) | 1/2 a day        | - Generic & relationship tests<br>- Custom & singular tests<br>- Tests from dbt packages | Coming soon| [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_02)
+| 1. | [Introduction to dbt-core](https://github.com/StanleyKinnokChan/spill_the_dbt/blob/main/tasks_cloud/challenge_01.md) | 1/2 a day      | - Basic connection profiles<br>- Migrating SQL code to dbt<br>- Running and testing models<br>- Referencing model outputs<br>- Generating documentation | Coming soon | [Solution](https://github.com/StanleyKinnokChan/spill_the_dbt_cloud_solution) |
+| 2. | [Testing models to find errors](https://github.com/StanleyKinnokChan/spill_the_dbt/blob/main/tasks_cloud/challenge_02.md) | 1/2 a day        | - Generic & relationship tests<br>- Custom & singular tests<br>- Tests from dbt packages | Coming soon| [Solution](https://github.com/StanleyKinnokChan/spill_the_dbt_cloud_solution)
 
 *More challenges coming soon!*
 
