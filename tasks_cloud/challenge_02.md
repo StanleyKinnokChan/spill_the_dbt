@@ -18,31 +18,34 @@ Identify and fix issues in a dbt model that aggregates late fees for overdue lib
 3. Click **Commit and sync** when you confirm all the work of a step is complete.
 
 **Reference Images:**
-- ![Initialization](https://i.imgur.com/Dv12b8n.png)
-- ![Commit and Sync](https://i.imgur.com/BhqbHPK.png)
+![Initialization](https://i.imgur.com/Dv12b8n.png)
+![Commit and Sync](https://i.imgur.com/BhqbHPK.png)
 
-### Step 2: Adding source yml and staging models under models directory
+### Step 2: Create a New Model
 
+- Under the models directory, create a new directory named "library_loans".
+- Under "library_loans", create two folders "source" and "marts".
+- Copy the customers_with_late_fees.sql to your under "library_loans" directory and save the model
+
+### Step 3: Adding source yml under models directory and staging layer
 Just like challenge 01, we will create a staging layer to clean and prepare the data.
 
-1. Create a new directory "library_loans" under models directory. 
-2. Create a new directory "source" subdirectory under "library_loans" directory. 
-3. Within source subdirectory, add a source.yml file to define the library data source. 
-4. Create staging models for each source table
+Under the library_loans/source directory, add a source.yml file to define the library_loans data source. 
+
+For each table defined in source.yml, you should add a source model within the same directory.
   - loans
   - members
   - books_factual
   - books_fictionals
 
 **Reference Image:**
-- ![Source YAML Setup](https://i.imgur.com/d9u04vv.png)
+![Source YAML Setup](https://i.imgur.com/d9u04vv.png)
 
-### Step 3: Create a New Model
 
-1. Create the marts Directory
-2. copy the customers_with_late_fees.sql to your under "library_loans" directory
+### Step 4: Replace the source reference in the legacy model
+The model customer_with_late_fees.sql contains full qualified table names, you will need to replace them with source references.
 
-### Step 4: Configure the Model in `dbt_project.yml`
+### Step 5: Configure the Model in `dbt_project.yml`
 
 In your `dbt_project.yml` file, add the following configuration to set the materialization for your models:
 
@@ -55,17 +58,18 @@ models:
 ```
 This sets the library_loans models in the marts directory to be materialized as a table.
 
-### Step 5: Verify the Model Can Run
+### Step 6: Verify the Model Can Run
 
 Run the following command to ensure the model is correctly set up:
 ```
-dbt run -s +library_loans
+dbt run -s library_loans
 ```
 This will create the table `customers_with_late_fees`. 
 
 However, stakeholders have indicated that the data is incorrect and does not match the existing report `solution.csv`.
 
-### Step 6: Add Tests in schema.yml
+
+### Step 7: Add Tests in schema.yml
 
 We need to create tests to identify issues in our source data.
 
@@ -107,13 +111,13 @@ dbt test -s library_loans
 You should see output indicating that some tests have failed.
 
 **Reference Image:**
-- ![Test Failed](https://i.imgur.com/h2FAKD6.png)
+![Test Failed](https://i.imgur.com/h2FAKD6.png)
 
-### Step 7: Create a Staging Layer to Resolve Failed Tests
+### Step 8: Create a new model and Resolve Failed Tests
 
 Add a new models `stg_books` in the "source" subdirectory under "library_loans" directory. 
 
-Note: `stg_books` is the union all of factual and fictional with a column to indicate genre: 'Fact' or 'Fiction'
+Note: `stg_books` is the union all of factual and fictional with a new column to indicate genre: 'Fact' or 'Fiction'
 
 Update schema.yml the run the test against the new staging tables. Those assumptions to check were:
 
@@ -147,14 +151,14 @@ models:
 Then run and test your dbt model.
 
 ```bash
-dbt run -m library_loans
+dbt run -s library_loans
 ```
 
 dbt run should return:
 ![Book model Passed](https://i.imgur.com/ekEHk6a.png)
 
 ```bash
-dbt test -m library_loans
+dbt test -s library_loans
 ```
 
 and dbt test should return:
@@ -182,7 +186,7 @@ Split the customer_with_late_fees query into 2 tables:
 
 Run and Test the Model:
 ```
-dbt build -m library_loans
+dbt build -s library_loans
 ```
 
 dbt build applies both run and test at once, you can learn more about the [dbt build command](https://docs.getdbt.com/reference/commands/build) in the dbt documentation.
@@ -206,7 +210,7 @@ Create a file tests/positive_late_fees.sql:
 {% test positive_late_fees(model, column_name) %}
   SELECT *
   FROM {{ model }}
-  WHERE {{ column_name }} <> 0
+  WHERE {{ column_name }} < 0
 {% endtest %}
 ```
 Add Tests to schema.yml

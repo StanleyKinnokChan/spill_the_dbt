@@ -6,60 +6,58 @@ These challenges generally follow the content for the [dbt Analytics Engineer Ce
 
 ## Getting Started
 
-**📺 [Installation walkthrough now available](https://youtu.be/rSI1VcSpXq0)**
-
 To work with these challenges, please follow the steps below:
 
-**1. Fork the Repository**
 
-You should fork the repository to your own GitHub account:
+**1. Set up dbt cloud**
+#### dbt Cloud
 
-- Click the "Fork" button at the top right corner of this page.
-- Choose your GitHub account to fork the repository.
+If you are using dbt Cloud, you can skip the installation and setup steps for dbt Core and instead use the Cloud IDE provided by dbt.
 
-**2. Clone Your Forked Repository**
+##### Sign Up for dbt Cloud
+Create an account at [dbt Cloud Sign Up](https://www.getdbt.com/signup).
 
-Once you've forked the repository, clone it to your local machine using:
-- [GitHub Desktop](https://desktop.github.com/download/), 
-- [VSCode's GitHub extension](https://vscode.github.com/) 
-- or the [git](https://git-scm.com/) command below
+##### Create a New Project
+After signing up, create a new project in dbt Cloud.
 
-```
-gh repo clone your-username/spill_the_dbt
-```
+> **Note:** The layout of the dbt Cloud interface may change over time.  
+> ![dbt Cloud Layout](https://i.imgur.com/U1R34WX.png)
 
-**3. Set Up Your Environment**
+##### Set Up Your Snowflake Connection
+Configure the connection to your Snowflake account:
 
-- Install Python: Ensure you have [Python](https://www.python.org/) installed on your machine that is compatible with dbt. Check [What version of Python can I use?](https://docs.getdbt.com/docs/core/pip-install)
-- Install Required Python Packages, includes dbt-core, you may wish to [run dbt another way](https://docs.getdbt.com/docs/core/installation-overview). 
-- Setup your computer for [working on dbt projects](https://discourse.getdbt.com/t/how-we-set-up-our-computers-for-working-on-dbt-projects/243)
 
-**Create a virtual environment**
-```
-python -m venv dbt-env
-```
+> ![Snowflake Connection](https://i.imgur.com/4Y47WXB.png)
 
-**Activate your virtual environment**
-Windows:
-```
-dbt-env\Scripts\activate
-```
-Mac / Linux
-```
-source dbt-env/bin/activate
-```
-**Install the required packages**
-``` bash
-pip install -r requirements.txt
-```
+##### Configure Development Credentials
+Update your development credentials:
 
-**4. Work Through the Challenge**
+- Change your **schema name** so your modeled data is written to your own schema during development.
+- **Test** the connection.
+- **Save** the credentials.
+
+> ![Development Credentials](https://i.imgur.com/tPZfZgD.png)
+
+##### Integrate with GitHub
+Connect your dbt Cloud project to a GitHub repository:
+
+- Log into your GitHub account.
+- Create a new repository to be managed by dbt Cloud.
+
+> ![GitHub Integration](https://i.imgur.com/wcUgMZG.png)
+
+
+You’re now all set and ready to move on to the challenge! ✅
+
+---
+
+**2. Work Through the Challenge**
 
 - Follow the step-by-step instructions provided in the challenge markdown file.
 - Write your dbt models, tests, and code as instructed.
-- Use Git to commit your changes to your forked repository.
+- Use Git to commit your changes to your created repository.
 
-**5. Optional: Share Your Solutions**
+**3. Optional: Share Your Solutions**
 
 If you'd like to share your solutions on social:
 - Use the hashtag **#SpillTheDBT** 
@@ -73,9 +71,8 @@ If you'd like to contribute back to the project, you can create a pull request f
 
 | Week | Challenge         | Estimated Time                                    | Skills Tested | Walkthrough                                             | Solutions                                                |
 |----- |-----------------------|------------------------------------------------------|-------|---------------------------------------------------------|----------------------------------------------------------|
-| 1. | [Introduction to dbt-core](https://github.com/wjsutton/spill_the_dbt/blob/main/tasks/challenge_01.md) | 1/2 a day      | - Basic connection profiles<br>- Migrating SQL code to dbt<br>- Running and testing models<br>- Referencing model outputs<br>- Generating documentation | [📺 Walkthrough](https://www.youtube.com/watch?v=vERj9AixGCM) | [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_01) |
-| 2. | [Testing models to find errors](https://github.com/wjsutton/spill_the_dbt/blob/main/tasks/challenge_02.md) | 1/2 a day        | - Generic & relationship tests<br>- Custom & singular tests<br>- Tests from dbt packages | Coming soon| [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_02)
-| 3. | [Incremental Models and Python](https://github.com/wjsutton/spill_the_dbt/blob/main/tasks/challenge_03.md) | 1 day        | - Incremental models<br>- Python models<br>- API data integration<br>- Tests from dbt packages | Coming soon| [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_03)
+| 1. | [Introduction to dbt-core](https://github.com/StanleyKinnokChan/spill_the_dbt/blob/main/tasks_cloud/challenge_01.md) | 1/2 a day      | - Basic connection profiles<br>- Migrating SQL code to dbt<br>- Running and testing models<br>- Referencing model outputs<br>- Generating documentation | Coming soon | [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_01) |
+| 2. | [Testing models to find errors](https://github.com/StanleyKinnokChan/spill_the_dbt/blob/main/tasks_cloud/challenge_02.md) | 1/2 a day        | - Generic & relationship tests<br>- Custom & singular tests<br>- Tests from dbt packages | Coming soon| [Solution](https://github.com/wjsutton/spill_the_dbt/tree/solutions/challenge_02)
 
 *More challenges coming soon!*
 

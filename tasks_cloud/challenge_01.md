@@ -20,21 +20,26 @@ In this challenge, you'll set up a dbt project to analyze Lego data using the da
 - ![Initialization](https://i.imgur.com/Dv12b8n.png)
 - ![Commit and Sync](https://i.imgur.com/BhqbHPK.png)
 
-### Step 2: Adding source yml under models directory
+### Step 2: Create a New Model
+- Under the models directory, create a new directory named "lego".
+- Under "lego", create two folders "source" and "marts".
+- Copy the provided SQL script lego.sql in the repository to your new lego/marts directory and save the model.
 
-Under the models directory, create a new directory named "lego". Add a source.yml file to define the Lego data source. 
+### Step 3: Adding source yml under models directory and staging layer
+
+Under the lego/source directory, add a source.yml file to define the Lego data source. 
+
+For each table defined in source.yml, you should add a source model within the same directory.
 
 **Reference Image:**
-- ![Source YAML Setup](https://i.imgur.com/xwSEDQ1.png)
+![Source YAML Setup](https://i.imgur.com/xwSEDQ1.png)
+![Source YAML Setup](https://i.imgur.com/OdzCFko.png)
 
-### Step 3: Create a New Model
 
-Copy the provided SQL script ch01_sql_script.sql in the repository to your new lego directory. Save the model.
+### Step 4: Replace the source reference in the legacy model
+The model lego.sql contains full qualified table names, you will need to replace them with source references.
 
-**Reference Image:**
-- ![Model Creation](https://i.imgur.com/DEJ6N9M.png)
-
-### Step 4: Verify the Model can run
+### Step 5: Verify the Model can run
 
 Run the following command to ensure the model is correctly set up:
 
@@ -46,7 +51,7 @@ If you encounter any errors, fix them accordingly.
 You should see output indicating that the model has run successfully.
 
 **Reference Image:**
-- ![Model Run Success](https://i.imgur.com/aPfvIek.png)
+![Model Run Success](https://i.imgur.com/E8qVezF.png)
 
 
 
