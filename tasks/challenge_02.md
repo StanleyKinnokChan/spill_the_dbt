@@ -321,7 +321,7 @@ Create a  `packages.yml` file in the same level (folder) as your `dbt_project.ym
 ```yml
 packages:
   - package: dbt-labs/dbt_utils
-    version: 0.9.2
+    version: 1.3.0
 ```
 Run `dbt deps` to install the package.
 ```bash
